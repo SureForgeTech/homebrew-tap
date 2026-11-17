@@ -2,6 +2,15 @@
 
 Install SureForge tools with [Homebrew](https://brew.sh) on macOS.
 
+Once per Mac, tap and trust it (Homebrew asks you to trust any tap that is not one of its own):
+
+```sh
+brew tap sureforgetech/tap
+brew trust --tap sureforgetech/tap
+```
+
+Then install any of the tools below:
+
 ```sh
 brew install sureforgetech/tap/<name>
 ```

@@ -26,6 +26,8 @@ jobs:
           tap_dir="$(brew --repository)/Library/Taps/sureforgetech"
           mkdir -p "$tap_dir"
           ln -s "$GITHUB_WORKSPACE" "$tap_dir/homebrew-tap"
+          # Homebrew 7 loads formulae and casks from a non-official tap only after it is trusted.
+          brew trust --tap sureforgetech/tap
       - name: Style
         run: brew style sureforgetech/tap
       - name: Audit
