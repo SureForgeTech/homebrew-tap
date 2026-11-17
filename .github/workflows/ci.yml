@@ -1,0 +1,34 @@
+name: brew
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  audit:
+    # Public repository: GitHub-hosted runners are used (free for public repositories).
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Tap this checkout
+        run: |
+          tap_dir="$(brew --repository)/Library/Taps/sureforgetech"
+          mkdir -p "$tap_dir"
+          ln -s "$GITHUB_WORKSPACE" "$tap_dir/homebrew-tap"
+      - name: Style
+        run: brew style sureforgetech/tap
+      - name: Audit
+        run: brew audit --strict --online --tap sureforgetech/tap
+      - name: Install and test the formula
+        run: |
+          brew install --formula sureforgetech/tap/sureforge-cfr
+          brew test sureforgetech/tap/sureforge-cfr
