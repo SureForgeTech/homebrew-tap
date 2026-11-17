@@ -1,2 +1,35 @@
-# homebrew-tap
-Homebrew tap for SureForge tools: brew install sureforgetech/tap/&lt;name>
+# SureForgeTech Homebrew tap
+
+Install SureForge tools with [Homebrew](https://brew.sh) on macOS.
+
+Once per Mac, tap and trust it (Homebrew asks you to trust any tap that is not one of its own):
+
+```sh
+brew tap sureforgetech/tap
+brew trust --tap sureforgetech/tap
+```
+
+Then install any of the tools below:
+
+```sh
+brew install sureforgetech/tap/<name>
+```
+
+| Name | What it is | Kind |
+| --- | --- | --- |
+| `sureforge-capture` | SureForge Capture (BugNarrator): narrate macOS testing sessions and turn them into bug reports | App (Apple silicon, macOS 14+) |
+| `sureforge-terminal` | SureForge Terminal: local-first SSH client with sessions, SFTP, snippets and port forwards | App (Apple silicon, macOS 13+) |
+| `sureforge-cfr` | Self-hosted Title 38 CFR index with an MCP server and HTTP API (command: `cfr-free`) | Command-line tool (needs Node.js, installed automatically) |
+
+The apps are signed with SureForge's Apple Developer ID and notarized by Apple. Each entry installs the
+release pinned in this tap; the tap is updated when a project publishes a new release.
+
+## Reporting problems
+
+Open an issue in the project's own repository (linked from `brew info <name>`). For an install problem
+with this tap, open an issue here. Security problems: see the
+[security policy](https://github.com/SureForgeTech/.github/blob/main/SECURITY.md).
+
+## License
+
+The tap's own files are licensed under Apache-2.0. Each project keeps its own licence.
