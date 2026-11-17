@@ -12,8 +12,8 @@ brew install sureforgetech/tap/<name>
 | `sureforge-terminal` | SureForge Terminal: local-first SSH client with sessions, SFTP, snippets and port forwards | App (Apple silicon, macOS 13+) |
 | `sureforge-cfr` | Self-hosted Title 38 CFR index with an MCP server and HTTP API (command: `cfr-free`) | Command-line tool (needs Node.js, installed automatically) |
 
-The apps are signed and notarized by Apple. Each entry installs the latest published release of its
-project; versions follow each project's own release numbers.
+The apps are signed with SureForge's Apple Developer ID and notarized by Apple. Each entry installs the
+release pinned in this tap; the tap is updated when a project publishes a new release.
 
 ## Reporting problems
 

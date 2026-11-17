@@ -5,7 +5,7 @@ cask "sureforge-capture" do
   url "https://github.com/SureForgeTech/sureforge-capture/releases/download/v#{version}/BugNarrator-v#{version}-macOS.dmg"
   name "SureForge Capture"
   name "BugNarrator"
-  desc "Narrate macOS testing sessions and turn them into bug reports"
+  desc "Narrate testing sessions and turn them into bug reports"
   homepage "https://github.com/SureForgeTech/sureforge-capture"
 
   livecheck do
@@ -14,7 +14,7 @@ cask "sureforge-capture" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "BugNarrator.app"
 end

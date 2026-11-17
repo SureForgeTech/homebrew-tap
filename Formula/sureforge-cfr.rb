@@ -5,6 +5,11 @@ class SureforgeCfr < Formula
   sha256 "ddbdbe46a6d5b56463e5c63afc1f8018f56a3f727b09c73d7a2216676bfb97b2"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   depends_on "node"
 
   def install
