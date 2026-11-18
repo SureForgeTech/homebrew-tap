@@ -31,6 +31,10 @@ jobs:
       - name: Style
         run: brew style sureforgetech/tap
       - name: Audit
+        # brew audit --online calls the GitHub API; without a token the shared runner's
+        # address hits the 60-requests-an-hour anonymous limit and the check fails.
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
         run: brew audit --strict --online --tap sureforgetech/tap
       - name: Install and test the formula
         run: |
