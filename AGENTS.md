@@ -69,5 +69,5 @@ Applies to new work after a repository adopts this baseline; do not retroactivel
 
 - Formulae live in `Formula/` and casks in `Casks/`. Install and audit packages in an isolated environment.
 - Run `ruby -c` on changed formulae or casks. The `brew` workflow checks style, strict online audit, installation, and the release formula's test.
-- For instruction changes, run the fleet generator check and `git diff --check`. Sign off commits and use the normal protected squash merge.
+- For instruction changes, run `git diff --check`. Fleet maintainers verify the generated block from BrewSync with `python3 scripts/fleet-agent-docs.py check <tap-checkout>`. Sign off commits and use the normal protected squash merge.
 - Describe changes in the pull request. This repository has no changelog.
